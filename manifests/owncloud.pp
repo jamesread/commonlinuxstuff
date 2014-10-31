@@ -1,4 +1,4 @@
-class owncloud {
+class jwr-puppet-module::owncloud {
 	package { "owncloud": 
 		ensure => installed
 	}
