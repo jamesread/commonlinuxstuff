@@ -1,0 +1,11 @@
+{
+	"name": "jwr-jwrpuppetmodule",
+	"version": "1.2.0",
+	"author": "jwr",
+	"dependencies": [
+		{
+			"name": "puppetlabs/firewall",
+			"version_requirement": ">= 0.0.4"
+		}
+	]
+}
