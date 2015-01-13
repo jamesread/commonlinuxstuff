@@ -11,7 +11,10 @@ class jwrpuppetmodule::basics {
 				}
 				'19', '20', '21':
 				{
-					package { "vim-jedi": ensure => installed }
+					package { ["vim-jedi", "vim-nerdtree"]: 
+						ensure => installed 
+					}
+
 					$firewall = "firewalld"
 				}
 			}
@@ -20,13 +23,23 @@ class jwrpuppetmodule::basics {
 
 		'RedHat': 
 		{
-			$firewall = "iptables"
+			case $operatingsystemrelease {
+				'6.0': 
+				{
+					$firewall = "iptables"
+				}
+
+				'7.0':
+				{
+					$firewall = 'firewalld'
+				}
+			}
 		}
 	}
 
 	info("Firewall: $firewall")
 
-	package { ["vim-enhanced", "elinks", "ntp", "git", "vim-nerdtree"]:
+	package { ["vim-enhanced", "elinks", "ntp", "git"]:
 		ensure => "installed"
 	}
 
