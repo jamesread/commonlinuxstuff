@@ -3,12 +3,12 @@ class jwrpuppetmodule::lamp {
 		ensure => installed
 	} ->
 
-	service { ["httpd", "mysqld"]:
+	service { ["httpd", "mariadb"]:
 		ensure => running,
 		enable => true
 	} ->
 
-	firewall { "500 httpd":
+	firewall { "firewall for httpd":
 		proto => tcp,
 		port => 80,
 		action => accept
