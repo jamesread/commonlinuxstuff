@@ -1,5 +1,5 @@
 class jwrpuppetmodule::basics {
-	warning("OS: $operatingsystem :: $operatingsystemrelease ")
+	info("OS: $operatingsystem :: $operatingsystemrelease ")
 
 	case $operatingsystem {
 		'Fedora': 
@@ -9,7 +9,7 @@ class jwrpuppetmodule::basics {
 				{
 					$firewall = "iptables"
 				}
-				'19':
+				'19', '20', '21':
 				{
 					package { "vim-jedi": ensure => installed }
 					$firewall = "firewalld"
@@ -24,15 +24,15 @@ class jwrpuppetmodule::basics {
 		}
 	}
 
-	warning("Firewall: $firewall")
+	info("Firewall: $firewall")
 
 	package { ["vim-enhanced", "elinks", "ntp", "git", "vim-nerdtree"]:
 		ensure => "installed"
 	}
 
-        exec { "update-profile":
-                command => "/usr/bin/wget http://jwread.com/var/nix/profile.txt -O /root/.bashrc"
-        }
+	exec { "update-profile":
+			command => "/usr/bin/wget http://jwread.com/var/nix/profile.txt -O /root/.bashrc"
+	}
 
 	service { ["ntpd", $firewall]:
 		enable => true 
