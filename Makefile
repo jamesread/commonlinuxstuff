@@ -1,5 +1,9 @@
-defualt:
+default:
 	puppet module build
 
+clean:
+	rm -rf pkg
+
 install:
-	tar xavf pkg/*.tar.gz  -C /etc/puppet/modules/jwr-puppet-module/
+	sudo mkdir -p /etc/puppet/modules/jwr-jwrpuppetmodule
+	sudo tar xavf pkg/*.tar.gz  -C /etc/puppet/modules/jwr-jwrpuppetmodule
