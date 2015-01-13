@@ -8,7 +8,7 @@ class jwrpuppetmodule::lamp {
 		enable => true
 	} ->
 
-	firewall { "firewall for httpd":
+	firewall { "500 httpd":
 		proto => tcp,
 		port => 80,
 		action => accept

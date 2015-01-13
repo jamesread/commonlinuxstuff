@@ -5,17 +5,11 @@ class jwrpuppetmodule::basics {
 		'Fedora': 
 		{
 			case $operatingsystemrelease {
-				'16', '17', '18': 
-				{
-					$firewall = "iptables"
-				}
 				'19', '20', '21':
 				{
 					package { ["vim-jedi", "vim-nerdtree"]: 
 						ensure => installed 
 					}
-
-					$firewall = "firewalld"
 				}
 			}
 
@@ -26,20 +20,20 @@ class jwrpuppetmodule::basics {
 			case $operatingsystemrelease {
 				'6.0': 
 				{
-					$firewall = "iptables"
 				}
 
 				'7.0':
 				{
-					$firewall = 'firewalld'
 				}
 			}
 		}
 	}
 
-	info("Firewall: $firewall")
+	package { "firewalld": 
+		ensure => "purged"
+	}
 
-	package { ["vim-enhanced", "elinks", "ntp", "git"]:
+	package { ["vim-enhanced", "elinks", "ntp", "git", "iptables"]:
 		ensure => "installed"
 	}
 
@@ -50,6 +44,13 @@ class jwrpuppetmodule::basics {
 	service { ["ntpd", $firewall]:
 		enable => true 
 	}
+
+	firewall { "22 ssh":
+		proto => tcp,
+		port => 22,
+		action => accept
+	}
+
 /*
 	exec { "puppet module install spiette-ssh":
 	  path    => "/usr/bin:/usr/sbin:/bin",
