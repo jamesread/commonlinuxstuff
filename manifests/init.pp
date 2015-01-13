@@ -1,3 +1,3 @@
-class jwr-puppet-module {
+class jwrpuppetmodule {
 
 }

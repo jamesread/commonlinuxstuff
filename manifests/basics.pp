@@ -1,4 +1,4 @@
-class jwr-puppet-module::basics {
+class jwrpuppetmodule::basics {
 	warning("OS: $operatingsystem :: $operatingsystemrelease ")
 
 	case $operatingsystem {

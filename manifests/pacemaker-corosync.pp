@@ -1,4 +1,4 @@
-class jwr-puppet-module::pacemaker-corosync {
+class jwrpuppetmodule::pacemaker-corosync {
 	package { ["corosync", "pacemaker", "pcs"]:
 		ensure => installed
 	}

@@ -1,4 +1,4 @@
-class jwr-puppet-module::lamp {
+class jwrpuppetmodule::lamp {
 	package { ["httpd", "mariadb-server", "php"]: 
 		ensure => installed
 	} ->
