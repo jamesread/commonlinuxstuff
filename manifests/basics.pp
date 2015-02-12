@@ -41,10 +41,27 @@ class commonlinuxstuff::basics {
 		ensure => "purged"
 	} -> 
 
+	firewall { "0 related":
+		proto => all,
+		state => ['RELATED', 'ESTABLISHED'],
+		action => 'accept'
+	}
+
+	firewall { "0 icmp":
+		proto => 'icmp',
+		action => 'accept',
+	}
+
+	firewall { "1 loopback interface":
+		proto => 'all',
+		iniface => 'lo',
+		action => 'accept'
+	}
+
 	firewall { "22 ssh":
-		proto => tcp,
+		proto => 'tcp',
 		port => 22,
-		action => accept
+		action => 'accept'
 	}
 
 	package { ["vim-enhanced", "elinks", "ntp", "git", "wget"]:
