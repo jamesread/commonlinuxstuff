@@ -2,6 +2,8 @@
 	"name": "jamesread-commonlinuxstuff",
 	"version": "1.4.0",
 	"author": "jamesread",
+	"source": "https://github.com/jamesread/jamesread-commonlinuxstuff",
+	"summary": "Common Linux Stuff",
 	"dependencies": [
 		{
 			"name": "puppetlabs/firewall",
