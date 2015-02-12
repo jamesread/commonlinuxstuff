@@ -24,6 +24,9 @@ class commonlinuxstuff::basics {
 
 				'7.0':
 				{
+					package { ["iptables", "iptables-services", "iptables-utils" ]:
+						ensure => "installed"
+					}
 				}
 			}
 		}
