@@ -15,16 +15,16 @@ class commonlinuxstuff::basics {
 
 		}
 
-		'RedHat': 
+		'CentOS', 'RedHat': 
 		{
 			case $operatingsystemrelease {
 				'6.0': 
 				{
 				}
 
-				'7.0':
+				'7.0', '7.0.1406':
 				{
-					package { ["iptables", "iptables-services", "iptables-utils" ]:
+					package { ["iptables-services", "iptables-utils" ]:
 						ensure => "installed"
 					}
 				}
