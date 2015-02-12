@@ -1,4 +1,4 @@
-class jwrpuppetmodule::pacemaker-corosync {
+class commonlinuxstuff::pacemaker-corosync {
 	package { ["corosync", "pacemaker", "pcs"]:
 		ensure => installed
 	}

@@ -1,4 +1,4 @@
-class jwrpuppetmodule::condor-compute {
+class commonlinuxstuff::condor-compute {
 	package { "condor": 
 		ensure => installed
 	}

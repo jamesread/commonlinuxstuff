@@ -1,4 +1,4 @@
-class jwrpuppetmodule::owncloud {
+class commonlinuxstuff::owncloud {
 	package { "owncloud": 
 		ensure => installed
 	}

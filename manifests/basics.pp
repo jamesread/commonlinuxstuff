@@ -1,4 +1,4 @@
-class jwrpuppetmodule::basics {
+class commonlinuxstuff::basics {
 	info("OS: $operatingsystem :: $operatingsystemrelease ")
 
 	case $operatingsystem {
