@@ -1,4 +1,4 @@
-jwr-puppet-module
+jamesread-commonlinuxstuff
 =================
 
-A puppet module containing my commonly used junk. 
+A puppet module containing my commonly used stuff.
