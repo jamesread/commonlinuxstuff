@@ -29,21 +29,14 @@ class commonlinuxstuff::basics {
 		}
 	}
 
+	/** iptables **/
+	package { "iptables":
+		ensure => "installed"
+	} -> 
+
 	package { "firewalld": 
 		ensure => "purged"
-	}
-
-	package { ["vim-enhanced", "elinks", "ntp", "git", "iptables"]:
-		ensure => "installed"
-	}
-
-	exec { "update-profile":
-			command => "/usr/bin/wget http://jwread.com/var/nix/profile.txt -O /root/.bashrc"
-	}
-
-	service { ["ntpd", $firewall]:
-		enable => true 
-	}
+	} -> 
 
 	firewall { "22 ssh":
 		proto => tcp,
@@ -51,17 +44,15 @@ class commonlinuxstuff::basics {
 		action => accept
 	}
 
-/*
-	exec { "puppet module install spiette-ssh":
-	  path    => "/usr/bin:/usr/sbin:/bin",
-	  onlyif  => "test `puppet module list | grep 'spiette-ssh' | wc -l` -eq 0"
-	} ->
+	package { ["vim-enhanced", "elinks", "ntp", "git", "wget"]:
+		ensure => "installed"
+	} -> 
 
-	class { "ssh":
-		serveroptions => {
-			'UseDNS' => 'no',
-			'GSSAPIAuthentication' => 'no',
-		}
+	exec { "update-profile":
+			command => "/usr/bin/wget http://jwread.com/var/nix/profile.txt -O /root/.bashrc"
 	}
-*/
+
+	service { ["ntpd", "iptables"]:
+		enable => true 
+	}
 }
