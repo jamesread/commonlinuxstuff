@@ -8,7 +8,8 @@ class commonlinuxstuff::basics {
 				'19', '20', '21':
 				{
 					package { ["vim-jedi", "vim-nerdtree"]: 
-						ensure => installed 
+						ensure => installed,
+						allow_virtual => true
 					}
 				}
 			}
@@ -17,15 +18,12 @@ class commonlinuxstuff::basics {
 
 		'CentOS', 'RedHat': 
 		{
-			case $operatingsystemrelease {
-				'6.0': 
-				{
-				}
-
-				'7.0', '7.0.1406':
+			case $operatingsystemmajrelease {	
+				'7':
 				{
 					package { ["iptables-services", "iptables-utils" ]:
-						ensure => "installed"
+						ensure => "installed",
+						allow_virtual => true
 					}
 				}
 			}
@@ -34,11 +32,13 @@ class commonlinuxstuff::basics {
 
 	/** iptables **/
 	package { "iptables":
-		ensure => "installed"
+		ensure => "installed",
+		allow_virtual => true
 	} -> 
 
 	package { "firewalld": 
-		ensure => "purged"
+		ensure => "purged",
+		allow_virtual => true
 	} -> 
 
 	firewall { "0 related":
@@ -65,7 +65,8 @@ class commonlinuxstuff::basics {
 	}
 
 	package { ["vim-enhanced", "elinks", "ntp", "git", "wget"]:
-		ensure => "installed"
+		ensure => "installed",
+		allow_virtual => true
 	} -> 
 
 	exec { "update-profile":
