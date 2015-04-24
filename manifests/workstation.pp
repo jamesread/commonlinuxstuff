@@ -1,7 +1,11 @@
 class commonlinuxstuff::workstation {
 	package {[
 		'docker',
-		]
-		ensure => installed
+		'kde-plasma-folderview',
+		'virt-manager',
+		'workstation',
+		]: 
+		ensure => installed,
+		allow_virtual => true
 	}
 }
