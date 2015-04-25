@@ -3,7 +3,8 @@ class commonlinuxstuff::workstation {
 		'docker',
 		'kde-plasma-folderview',
 		'virt-manager',
-		'workstation',
+		'gimp',
+		'filezilla'
 		]: 
 		ensure => installed,
 		allow_virtual => true
