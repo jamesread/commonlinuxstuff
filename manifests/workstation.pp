@@ -5,6 +5,7 @@ class commonlinuxstuff::workstation {
 		'virt-manager',
 		'gimp',
 		'filezilla'
+		'gvim',
 		]: 
 		ensure => installed,
 		allow_virtual => true
