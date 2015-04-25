@@ -4,7 +4,7 @@ class commonlinuxstuff::workstation {
 		'kde-plasma-folderview',
 		'virt-manager',
 		'gimp',
-		'filezilla'
+		'filezilla',
 		'gvim',
 		]: 
 		ensure => installed,
