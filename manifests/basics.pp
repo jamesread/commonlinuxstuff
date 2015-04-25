@@ -64,7 +64,7 @@ class commonlinuxstuff::basics {
 		action => 'accept'
 	}
 
-	package { ["vim-enhanced", "elinks", "ntp", "git", "wget"]:
+	package { ["vim-enhanced", "elinks", "ntp", "git", "wget", "htop"]:
 		ensure => "installed",
 		allow_virtual => true
 	} -> 
