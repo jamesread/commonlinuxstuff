@@ -1,6 +1,7 @@
 class commonlinuxstuff::owncloud {
 	package { "owncloud": 
-		ensure => installed
+		ensure => installed,
+		allow_virtual => true
 	}
 
 	service { "firewalld":

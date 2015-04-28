@@ -1,6 +1,7 @@
 class commonlinuxstuff::lamp {
 	package { ["httpd", "mariadb-server", "php"]: 
-		ensure => installed
+		ensure => installed,
+		allow_virtual => true
 	} ->
 
 	service { ["httpd", "mariadb"]:

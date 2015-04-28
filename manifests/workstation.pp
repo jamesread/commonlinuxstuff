@@ -9,7 +9,9 @@ class commonlinuxstuff::workstation {
 		'overpass-fonts',
 		'vlc',
 		'cmake',
-		'g++'
+		'gcc',
+		'gcc-c++',
+		'gdb'
 		]: 
 		ensure => installed,
 		allow_virtual => true

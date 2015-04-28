@@ -1,5 +1,6 @@
 class commonlinuxstuff::pacemaker-corosync {
 	package { ["corosync", "pacemaker", "pcs"]:
-		ensure => installed
+		ensure => installed,
+		allow_virtual => true
 	}
 }
