@@ -6,6 +6,10 @@ class commonlinuxstuff::workstation {
 		'gimp',
 		'filezilla',
 		'gvim',
+		'overpass-fonts',
+		'vlc',
+		'cmake',
+		'g++'
 		]: 
 		ensure => installed,
 		allow_virtual => true
