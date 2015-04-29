@@ -11,7 +11,9 @@ class commonlinuxstuff::workstation {
 		'cmake',
 		'gcc',
 		'gcc-c++',
-		'gdb'
+		'gdb',
+		'nodejs',
+		'go',
 		]: 
 		ensure => installed,
 		allow_virtual => true
