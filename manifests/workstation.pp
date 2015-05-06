@@ -14,7 +14,9 @@ class commonlinuxstuff::workstation {
 		'gdb',
 		'nodejs',
 		'go',
-		'eclipse'
+		'eclipse',
+		'eclipse-m2e-core',
+		'eclipse-m2e-egit'
 		]: 
 		ensure => installed,
 		allow_virtual => true
