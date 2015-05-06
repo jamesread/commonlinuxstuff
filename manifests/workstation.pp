@@ -14,6 +14,7 @@ class commonlinuxstuff::workstation {
 		'gdb',
 		'nodejs',
 		'go',
+		'eclipse'
 		]: 
 		ensure => installed,
 		allow_virtual => true
