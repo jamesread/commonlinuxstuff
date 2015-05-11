@@ -18,7 +18,8 @@ class commonlinuxstuff::workstation {
 		'eclipse-m2e-core',
 		'eclipse-m2e-egit',
 		'htop',
-		'icedtea-web'
+		'icedtea-web',
+		'virt-viewer'
 		]: 
 		ensure => installed,
 		allow_virtual => true
