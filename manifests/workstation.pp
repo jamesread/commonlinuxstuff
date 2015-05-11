@@ -16,7 +16,9 @@ class commonlinuxstuff::workstation {
 		'go',
 		'eclipse',
 		'eclipse-m2e-core',
-		'eclipse-m2e-egit'
+		'eclipse-m2e-egit',
+		'htop',
+		'icedtea-web'
 		]: 
 		ensure => installed,
 		allow_virtual => true
