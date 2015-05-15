@@ -1,5 +1,6 @@
 package { "condor": 
-    ensure => "installed"
+    ensure => "installed",
+	allow_virtual => true
 } ->
 
 augeas { "condor_config":
