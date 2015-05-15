@@ -1,10 +1,6 @@
 {
 	"name": "jamesread-commonlinuxstuff",
-<<<<<<< HEAD
-	"version": "1.4.3",
-=======
 	"version": "1.5.1",
->>>>>>> 836bab392b678eb1d9fa278cddc137ff21c818d6
 	"author": "jamesread",
 	"license": "gpl",
 	"source": "https://github.com/jamesread/jamesread-commonlinuxstuff",
