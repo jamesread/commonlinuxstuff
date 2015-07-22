@@ -1,5 +1,6 @@
 class commonlinuxstuff::condor-compute {
 	package { "condor": 
-		ensure => installed
+		ensure => installed,
+		allow_virtual => true
 	}
 }
