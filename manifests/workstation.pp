@@ -21,6 +21,7 @@ class commonlinuxstuff::workstation {
 		'icedtea-web',
 		'virt-viewer',
 		'filelight',
+		'tmux',
 		]: 
 		ensure => installed,
 		allow_virtual => true
