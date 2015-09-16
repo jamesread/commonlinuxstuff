@@ -60,7 +60,7 @@ class commonlinuxstuff::basics {
 
 	firewall { "22 ssh":
 		proto => 'tcp',
-		port => 22,
+		dport => 22,
 		action => 'accept'
 	}
 
