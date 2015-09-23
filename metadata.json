@@ -9,6 +9,10 @@
 		{
 			"name": "puppetlabs/firewall",
 			"version_requirement": ">= 0.0.4"
+		},
+		{
+			"name": "puppetlabs/stdlib",
+			"version_requirement": ">= 4.9.0"
 		}
 	]
 }
