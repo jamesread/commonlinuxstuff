@@ -63,7 +63,7 @@ class commonlinuxstuff::basics {
 
 		firewall { "22 ssh":
 			proto => 'tcp',
-			port => 22,
+			dport => 22,
 			action => 'accept'
 		}
 
@@ -72,7 +72,7 @@ class commonlinuxstuff::basics {
 		}
 	}
 
-	package { ["vim-enhanced", "elinks", "ntp", "git", "wget", "htop"]:
+	package { ["vim-enhanced", "elinks", "ntp", "git", "wget", "unzip"]:
 		ensure => "installed",
 		allow_virtual => true
 	} -> 

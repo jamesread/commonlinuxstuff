@@ -1,6 +1,6 @@
 {
 	"name": "jamesread-commonlinuxstuff",
-	"version": "1.5",
+	"version": "1.5.3",
 	"author": "jamesread",
 	"license": "gpl",
 	"source": "https://github.com/jamesread/jamesread-commonlinuxstuff",
@@ -9,6 +9,10 @@
 		{
 			"name": "puppetlabs/firewall",
 			"version_requirement": ">= 0.0.4"
+		},
+		{
+			"name": "puppetlabs/stdlib",
+			"version_requirement": ">= 4.9.0"
 		}
 	]
 }
