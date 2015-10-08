@@ -5,7 +5,7 @@ class commonlinuxstuff::basics {
 		'Fedora': 
 		{
 			case $operatingsystemrelease {
-				'19', '20', '21':
+				'19', '20', '21', '22', '23':
 				{
 					package { ["vim-jedi", "vim-nerdtree"]: 
 						ensure => installed,
@@ -30,38 +30,46 @@ class commonlinuxstuff::basics {
 		}
 	}
 
-	/** iptables **/
-	package { "iptables":
-		ensure => "installed",
-		allow_virtual => true
-	} -> 
+	$insideDocker = inline_template("<% if File.exist?('/.dockerenv') -%>true<% end -%>")
+	
+	if !$insideDocker {
+		/** iptables **/
+		package { "iptables":
+			ensure => "installed",
+			allow_virtual => true
+		} -> 
 
-	package { "firewalld": 
-		ensure => "purged",
-		allow_virtual => true
-	} -> 
+		package { "firewalld": 
+			ensure => "purged",
+			allow_virtual => true
+		} -> 
 
-	firewall { "0 related":
-		proto => all,
-		state => ['RELATED', 'ESTABLISHED'],
-		action => 'accept'
-	}
+		firewall { "0 related":
+			proto => all,
+			state => ['RELATED', 'ESTABLISHED'],
+			action => 'accept'
+		}
 
-	firewall { "0 icmp":
-		proto => 'icmp',
-		action => 'accept',
-	}
+		firewall { "0 icmp":
+			proto => 'icmp',
+			action => 'accept',
+		}
 
-	firewall { "1 loopback interface":
-		proto => 'all',
-		iniface => 'lo',
-		action => 'accept'
-	}
+		firewall { "1 loopback interface":
+			proto => 'all',
+			iniface => 'lo',
+			action => 'accept'
+		}
 
-	firewall { "22 ssh":
-		proto => 'tcp',
-		port => 22,
-		action => 'accept'
+		firewall { "22 ssh":
+			proto => 'tcp',
+			port => 22,
+			action => 'accept'
+		}
+
+		service { "iptables": 
+			enable => true
+		}
 	}
 
 	package { ["vim-enhanced", "elinks", "ntp", "git", "wget", "htop"]:
@@ -73,7 +81,7 @@ class commonlinuxstuff::basics {
 			command => "/usr/bin/wget http://jwread.com/var/nix/profile.txt -O /root/.bashrc"
 	}
 
-	service { ["ntpd", "iptables"]:
+	service { ["ntpd"]:
 		enable => true 
 	}
 }
