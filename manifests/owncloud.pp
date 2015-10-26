@@ -1,5 +1,5 @@
 class commonlinuxstuff::owncloud {
-	package { ["findutils", "owncloud"]: 
+	package { ["findutils", "hostname", "owncloud"]: 
 		ensure => installed,
 		allow_virtual => true
 	}
