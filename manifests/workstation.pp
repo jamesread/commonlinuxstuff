@@ -22,6 +22,7 @@ class commonlinuxstuff::workstation {
 		'virt-viewer',
 		'filelight',
 		'tmux',
+		'xfreerdp',
 		]: 
 		ensure => installed,
 		allow_virtual => true
