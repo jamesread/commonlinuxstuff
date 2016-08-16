@@ -1,4 +1,5 @@
 default:
+	puppet-lint -f manifests/
 	puppet module build
 
 clean:
