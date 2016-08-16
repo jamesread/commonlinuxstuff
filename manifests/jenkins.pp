@@ -1,5 +1,5 @@
 class commonlinuxstuff::jenkins {
-  yumrepo {
+  yumrepo { "jenkins":
     baseurl => 'http://pkg.jenkins.io/redhat',
     descr => 'Jenkins',
     enabled => 1,
