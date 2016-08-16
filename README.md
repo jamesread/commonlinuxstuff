@@ -14,7 +14,7 @@ Using the module without a puppet master
 
 This is what I do to use the module without a puppet master;
 
-	user@host: echo "include commonlinuxstuff::basics >> /etc/puppet/local.pp"
+	user@host: echo "include commonlinuxstuff::basics" >> /etc/puppet/local.pp
 	...
 
 	user@host: puppet apply /etc/puppet/local.pp
