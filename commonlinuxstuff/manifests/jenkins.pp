@@ -1,3 +1,4 @@
+# Install Jenkins.
 class commonlinuxstuff::jenkins {
   yumrepo { 'jenkins':
     baseurl  => 'http://pkg.jenkins.io/redhat',

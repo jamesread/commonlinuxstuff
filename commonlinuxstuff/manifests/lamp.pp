@@ -1,3 +1,4 @@
+# Install LAMP
 class commonlinuxstuff::lamp {
   package { ['httpd', 'mariadb-server', 'php', 'php-pdo', 'php-mysql' ]:
     ensure        => installed,

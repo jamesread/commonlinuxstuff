@@ -1,3 +1,4 @@
+# Rebuild my workstation.
 class commonlinuxstuff::workstation {
   package {[
     'docker',

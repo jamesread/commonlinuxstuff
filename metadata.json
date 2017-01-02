@@ -2,7 +2,7 @@
 	"name": "jamesread-commonlinuxstuff",
 	"version": "1.5.5",
 	"author": "jamesread",
-	"license": "gpl",
+	"license": "LGPL-3.0",
 	"source": "https://github.com/jamesread/jamesread-commonlinuxstuff",
 	"summary": "Common Linux Stuff",
 	"dependencies": [
@@ -13,6 +13,16 @@
 		{
 			"name": "puppetlabs/stdlib",
 			"version_requirement": ">= 4.9.0"
+		}
+	],
+	"operatingsystem_support": [
+		{
+			"operatingsystem": "RedHat",
+			"operatingsystemrelease": ["6.x", "7.x"]
+		},
+		{
+			"operatingsystem": "Fedora",
+			"operatingsystemrelease": ["23", "24", "25"]
 		}
 	]
 }

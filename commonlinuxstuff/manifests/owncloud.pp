@@ -1,3 +1,4 @@
+# Install OwnCloud.
 class commonlinuxstuff::owncloud {
   package { ['findutils', 'hostname', 'owncloud']:
     ensure        => installed,
@@ -28,10 +29,10 @@ class commonlinuxstuff::owncloud {
   } ->
 
   file { 'autoconfig':
-    owner   => 'apache',
-    group   => 'apache',
-    path    => '/usr/share/owncloud/config/autoconfig.php',
-    content => '<?php $AUTOCONFIG = array("dbtype" => "mysql", "dbname" => "owncloud", "dbuser" => "root", "dbpass" => "", "dbhost" => "localhost", "dbtableprefix" => "", "adminlogin" => "root", "adminpass" => "password", "directory" => "/var/www/html/data" ); ?>'
+    owner  => 'apache',
+    group  => 'apache',
+    path   => '/usr/share/owncloud/config/autoconfig.php',
+    source => 'puppet:///modules/files/owncloud_autoconfig.php'
   } ->
 
   exec { 'Cant be arsed to do it properly.':
@@ -52,8 +53,8 @@ class commonlinuxstuff::owncloud {
   } ->
 
   file { 'index':
-    path    => '/var/www/html/index.html',
     ensure  => file,
+    path    => '/var/www/html/index.html',
     content => '<a href = "/owncloud">Owncloud</a>'
   }
 }
