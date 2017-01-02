@@ -1,5 +1,5 @@
 default:
-	puppet-lint -f manifests/
+	puppet-lint -f manifests/ --no-autoloader_layout-check
 	puppet module build
 
 clean:
