@@ -3,7 +3,7 @@
 	"version": "1.7.0",
 	"author": "jamesread",
 	"license": "LGPL-3.0",
-	"source": "https://github.com/jamesread/jamesread-commonlinuxstuff",
+	"source": "https://github.com/jamesread/commonlinuxstuff",
 	"summary": "Common Linux Stuff",
 	"dependencies": [
 		{
