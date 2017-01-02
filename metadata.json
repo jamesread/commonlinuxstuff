@@ -21,6 +21,10 @@
 			"operatingsystemrelease": ["6.x", "7.x"]
 		},
 		{
+			"operatingsystem": "CentOS",
+			"operatingsystemrelease": ["6.x", "7.x"]
+		},
+		{
 			"operatingsystem": "Fedora",
 			"operatingsystemrelease": ["23", "24", "25"]
 		}
