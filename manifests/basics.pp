@@ -13,10 +13,6 @@ class commonlinuxstuff::basics {
     'CentOS', 'RedHat': {
       case $::operatingsystemmajrelease {
         '7': {
-          package { ['iptables-services', 'iptables-utils' ]:
-            ensure        => 'installed',
-            allow_virtual => true
-          }
         }
 
         default: {
@@ -34,41 +30,24 @@ class commonlinuxstuff::basics {
   $insideDocker = inline_template("<% if File.exist?('/.dockerenv') -%>true<% end -%>")
   
   if !$insideDocker {
-    # iptables
-    package { 'iptables':
+    package { 'firewalld':
       ensure        => 'installed',
       allow_virtual => true
     } ->
 
-    package { 'firewalld':
-      ensure        => 'purged',
-      allow_virtual => true
-    } ->
-
-    firewall { '0 related':
-      proto  => all,
-      state  => ['RELATED', 'ESTABLISHED'],
-      action => 'accept'
+    firewalld_service { 'Allow SSH from the external zone':
+      ensure  => 'present',
+      service => 'ssh',
+      zone    => 'external'
     }
 
-    firewall { '0 icmp':
-      proto  => 'icmp',
-      action => 'accept',
+    firewalld_service { 'Allow ping':
+      ensure  => 'present',
+      service => 'icmp',
+      zone    => 'external'
     }
 
-    firewall { '1 loopback interface':
-      proto   => 'all',
-      iniface => 'lo',
-      action  => 'accept'
-    }
-
-    firewall { '22 ssh':
-      proto  => 'tcp',
-      dport  => 22,
-      action => 'accept'
-    }
-
-    service { 'iptables':
+    service { 'firewalld':
       enable => true
     }
   }
