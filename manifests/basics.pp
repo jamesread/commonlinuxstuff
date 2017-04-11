@@ -52,7 +52,7 @@ class commonlinuxstuff::basics {
     }
   }
 
-  package { ['vim-enhanced', 'elinks', 'ntp', 'git', 'wget', 'unzip', 'psmisc']:
+  package { ['vim-enhanced', 'elinks', 'ntp', 'git', 'wget', 'unzip', 'psmisc', 'htop']:
     ensure        => 'installed',
     allow_virtual => true
   } ->
