@@ -7,12 +7,20 @@ class commonlinuxstuff::jenkins {
     gpgcheck => 0
   } ->
 
-  package { ['java', 'jenkins']:
+  package { ['java', 'jenkins', 'httpd']:
     ensure        => installed,
     allow_virtual => true
   } ->
 
-  service { 'jenkins':
+  file { 'autoconfig':
+    owner  => 'apache',
+    group  => 'apache',
+    path   => '/etc/httpd/conf.d/jenkins-proxy.conf',
+    source => 'puppet:///modules/files/jenkins-proxy.conf'
+  } ->
+
+
+  service { ['jenkins', 'httpd']:
     enable => true
   }
 }
